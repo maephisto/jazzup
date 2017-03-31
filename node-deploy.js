@@ -7,7 +7,7 @@ var _ = require('underscore');
 var musicFilename = 'mission-impossible-soundtrack.mp3';
 
 var EffectsMap = require('./effects-map.json');
-var EffectsSet = null;
+var EffectsSet = {};
 
 if (process.argv && process.argv.length > 2) {
   var masterCommand = process.argv[2];
@@ -23,15 +23,17 @@ if (process.argv && process.argv.length > 2) {
       effectsKey = key;
     }
   });
+  let defaultEffectSet = EffectsMap['default'];
+  var selectedEffectSet = EffectsMap[effectsKey];
 
-  EffectsSet = EffectsMap[effectsKey];
+  _.extend(EffectsSet, defaultEffectSet, selectedEffectSet);
 
 } else {
   console.log('Yo, I need a command to run and you aint givin me any!');
   return false;
 }
 
-var filePath = path.join(__dirname, 'audio/', musicFilename);
+var filePath = path.join(__dirname, 'audio/', EffectsSet.audio);
 
 console.log('\n\n*********** ' + EffectsSet.lines.title.toUpperCase() + ' **************');
 console.log(`

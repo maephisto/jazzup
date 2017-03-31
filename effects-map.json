@@ -1,5 +1,38 @@
 {
   "^git push.*": {
+    "audio": "mission-impossible-soundtrack.mp3"
+  },
+  "rm": {
+
+  },
+  "npm install": {
+    "audio": "good-bad-ugly.mp3",
+    "lines": {
+      "title": "DEPLOY STANDOFF",
+      "ascii": "",
+      "entry-lines": {
+        "values": [
+          "You see, in this world there's two kinds of people, my friend: Those with loaded guns and those who dig. You dig.",
+          "God is with us because he hates the yanks too!\n"
+        ],
+        "interval": 2000
+      },
+      "command-start-lines": {
+        "values": [
+          "When you have to shoot, shoot. Don't talk.\n",
+          "The standoff begins...\n"
+        ],
+        "interval": 1000
+      },
+      "post-execution-lines": {
+        "values": [
+          " [Reading a letter] \"See you soon, idiots\". It's for you."
+        ]
+      }
+    }
+  },
+
+  "default": {
     "audio": "mission-impossible-soundtrack.mp3",
     "lines": {
       "title": "DEPLOY IMPOSSIBLE",
@@ -20,15 +53,9 @@
       },
       "post-execution-lines": {
         "values": [
-          "You command is done now sir, the orghestra has stopped playing..."
+          "You command is done now sir, the orchestra has stopped playing..."
         ]
       }
     }
-  },
-  "rm": {
-
-  },
-  "npm install": {
-
   }
 }
