@@ -2,12 +2,27 @@
   "name": "deploay",
   "version": "1.0.0",
   "description": "",
-  "main": "node-deploy.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": ""
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Marius Mischie <m@marius.in>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maephisto/jazzup/issues"
+  },
+  "homepage": "https://github.com/maephisto/jazzup#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maephisto/jazzup.git"
+  },
+  "keywords": [
+    "cli",
+    "bash",
+    "sound",
+    "fun",
+    "node.js"
+  ],
   "dependencies": {
     "player": "^0.6.1"
   }
