@@ -7,13 +7,13 @@
   },
   "npm install": {
     "audio": "good-bad-ugly.mp3",
+    "ascii": "cowboy.txt",
     "lines": {
-      "title": "DEPLOY STANDOFF",
-      "ascii": "",
+      "title": "THE WILD WILD DEPLOYMENT",
       "entry-lines": {
         "values": [
-          "You see, in this world there's two kinds of people, my friend: Those with loaded guns and those who dig. You dig.",
-          "God is with us because he hates the yanks too!\n"
+          "You see, in this world there's two kinds of people, my friend: Those with loaded guns and those who dig.",
+          "You dig.\n"
         ],
         "interval": 2000
       },
@@ -34,9 +34,9 @@
 
   "default": {
     "audio": "mission-impossible-soundtrack.mp3",
+    "ascii": "bomb.txt",
     "lines": {
       "title": "DEPLOY IMPOSSIBLE",
-      "ascii": "",
       "entry-lines": {
         "values": [
           "Mr. Hunt, this isn't mission difficult, it's mission impossible.",

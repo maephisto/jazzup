@@ -2,9 +2,9 @@
 
 var spawn = require('child_process').spawn;
 var path = require('path');
+var fs = require('fs');
 var Player = require('player');
 var _ = require('underscore');
-var musicFilename = 'mission-impossible-soundtrack.mp3';
 
 var EffectsMap = require('./effects-map.json');
 var EffectsSet = {};
@@ -36,13 +36,9 @@ if (process.argv && process.argv.length > 2) {
 var filePath = path.join(__dirname, 'audio/', EffectsSet.audio);
 
 console.log('\n\n*********** ' + EffectsSet.lines.title.toUpperCase() + ' **************');
-console.log(`
-                  ,--.!,
-               __/   -*-
-             ,d08b.  '|'
-             0088MM     
-             '9MMP'     
-`);
+var asciiArtFilePath = path.join(__dirname, 'art/', EffectsSet.ascii);
+var asciiArt = fs.readFileSync(asciiArtFilePath).toString();
+console.log(asciiArt + '\n');
 
 var player = new Player(filePath);
 player.play(function (err, player) {});
@@ -74,9 +70,6 @@ setTimeout(function () {
       player.stop();
     });
 
-    // musicProcess.stderr.on('data', function (err) {
-    //   console.error('error playing music: ' + err);
-    // });
     commandProcess.stdout.on('data', function (data) {
       console.error(data.toString());
     });
