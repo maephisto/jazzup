@@ -3,11 +3,37 @@
 var spawn = require('child_process').spawn;
 var path = require('path');
 var Player = require('player');
+var _ = require('underscore');
 var musicFilename = 'mission-impossible-soundtrack.mp3';
 
-var filePath = path.join(__dirname, musicFilename);
+var EffectsMap = require('./effects-map.json');
+var EffectsSet = null;
 
-console.log('\n\n*********** DEPLOYMENT IMPOSSIBLE **************');
+if (process.argv && process.argv.length > 2) {
+  var masterCommand = process.argv[2];
+  var masterOptions = process.argv.slice(3);
+
+  var cmdString = process.argv.slice(2).join(' ');
+  
+  var effectsKey = 'default';
+  //now let's search for a matching pattern
+  _.keys(EffectsMap).forEach(function (key) {
+    var exp = new RegExp(key, 'i');
+    if (exp.test(cmdString))  {
+      effectsKey = key;
+    }
+  });
+
+  EffectsSet = EffectsMap[effectsKey];
+
+} else {
+  console.log('Yo, I need a command to run and you aint givin me any!');
+  return false;
+}
+
+var filePath = path.join(__dirname, 'audio/', musicFilename);
+
+console.log('\n\n*********** ' + EffectsSet.lines.title.toUpperCase() + ' **************');
 console.log(`
                   ,--.!,
                __/   -*-
@@ -16,22 +42,15 @@ console.log(`
              '9MMP'     
 `);
 
-// create player instance 
 var player = new Player(filePath);
-// play now and callback when playend 
-player.play(function(err, player){});
-
-// var musicCommand = '/usr/bin/afplay';
-// var musicCommand = './node_modules/player/bin/cli';
-
-// var musicProcess = spawn(musicCommand, ['play', filePath]);
+player.play(function (err, player) {});
 
 setTimeout(function () {
-  console.log('Mr. Hunt, this isn\'t mission difficult, it\'s mission impossible.');
+  console.log(EffectsSet.lines['entry-lines'].values[0]);
 }, 500);
 
 setTimeout(function () {
-  console.log('This log will self-destruct in five seconds. Good luck!\n');
+  console.log(EffectsSet.lines['entry-lines'].values[1]);
 }, 3000);
 
 setTimeout(function () {
@@ -40,38 +59,31 @@ setTimeout(function () {
 
 setTimeout(function () {
 
+  try {
+    // console.log('Setting up the honeypot', masterCommand, masterOptions.join(' '));
 
-  if (process.argv && process.argv.length > 2) {
-    try {
-      var masterCommand = process.argv[2];
-      var masterOptions = process.argv.slice(3);
-      console.log('Setting up the honeypot', masterCommand, masterOptions.join(' '));
+    console.log(EffectsSet.lines['command-start-lines'].values[1]);
+    console.log(EffectsSet.lines['command-start-lines'].values[0]);
 
-      console.log('Let\'s do this! One...two...three...toast...TOAST!\n');
-      console.log('Intercepting com...\n');
+    var commandProcess = spawn(masterCommand, masterOptions);
+    commandProcess.on('close', function (code) {
+      //stop the music
+      console.log(EffectsSet.lines['post-execution-lines'].values[0]);
+      player.stop();
+    });
 
-      var commandProcess = spawn(masterCommand, masterOptions);
-      commandProcess.on('close', function (code) {
-        //stop the music
-        console.log('You command is done now sir, stopping the music');
-        // musicProcess.kill('SIGINT');
-        player.stop();
-      });
-
-      // musicProcess.stderr.on('data', function (err) {
-      //   console.error('error playing music: ' + err);
-      // });
-      commandProcess.stdout.on('data', function (data) {
-        console.error(data.toString());
-      });
-      commandProcess.stderr.on('data', function (err) {
-        console.error(err.toString());
-      });
-    } catch (error) {
-      console.log('OH', error, error.stack);
-    }
-  } else {
-    console.log('Yo, I need a command to run and you aint givin me any!');
+    // musicProcess.stderr.on('data', function (err) {
+    //   console.error('error playing music: ' + err);
+    // });
+    commandProcess.stdout.on('data', function (data) {
+      console.error(data.toString());
+    });
+    commandProcess.stderr.on('data', function (err) {
+      console.error(err.toString());
+    });
+  } catch (error) {
+    console.log('OH', error, error.stack);
   }
+
 
 }, 6000);

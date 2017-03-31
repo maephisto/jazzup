@@ -1,0 +1,34 @@
+{
+  "^git push.*": {
+    "audio": "mission-impossible-soundtrack.mp3",
+    "lines": {
+      "title": "DEPLOY IMPOSSIBLE",
+      "ascii": "",
+      "entry-lines": {
+        "values": [
+          "Mr. Hunt, this isn't mission difficult, it's mission impossible.",
+          "This log will self-destruct in five seconds. Good luck!\n"
+        ],
+        "interval": 2000
+      },
+      "command-start-lines": {
+        "values": [
+          "Let's do this! One...two...three...toast...TOAST!\n",
+          "Intercepting com...\n"
+        ],
+        "interval": 1000
+      },
+      "post-execution-lines": {
+        "values": [
+          "You command is done now sir, the orghestra has stopped playing..."
+        ]
+      }
+    }
+  },
+  "rm": {
+
+  },
+  "npm install": {
+
+  }
+}
