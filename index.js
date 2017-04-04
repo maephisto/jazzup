@@ -15,9 +15,17 @@ if (process.argv && process.argv.length > 2) {
 
   var cmdString = process.argv.slice(2).join(' ');
   
+  /**
+   * We need a default effect, which is obviously, random or "default"
+   */
   var effectsKey = 'default';
-  //now let's search for a matching pattern
-  _.keys(EffectsMap).forEach(function (key) {
+  
+  let effectKeys = _.keys(EffectsMap);
+  effectsKey = effectKeys[ Math.floor(Math.random() * effectKeys.length)];
+  /**
+   * Now let's search for a matching pattern
+   */
+  effectKeys.forEach(function (key) {
     var exp = new RegExp(key, 'i');
     if (exp.test(cmdString))  {
       effectsKey = key;
