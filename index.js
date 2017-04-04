@@ -36,6 +36,7 @@ if (process.argv && process.argv.length > 2) {
 var filePath = path.join(__dirname, 'audio/', EffectsSet.audio);
 
 console.log('\n\n*********** ' + EffectsSet.lines.title.toUpperCase() + ' **************');
+
 var asciiArtFilePath = path.join(__dirname, 'art/', EffectsSet.ascii);
 var asciiArt = fs.readFileSync(asciiArtFilePath).toString();
 console.log(asciiArt + '\n');
@@ -58,7 +59,6 @@ setTimeout(function () {
 setTimeout(function () {
 
   try {
-    // console.log('Setting up the honeypot', masterCommand, masterOptions.join(' '));
 
     console.log(EffectsSet.lines['command-start-lines'].values[1]);
     console.log(EffectsSet.lines['command-start-lines'].values[0]);

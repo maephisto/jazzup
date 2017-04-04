@@ -6,6 +6,7 @@
   "scripts": {
     "test": ""
   },
+  "bin": "index.js",
   "author": "Marius Mischie <m@marius.in>",
   "license": "MIT",
   "bugs": {
