@@ -6,7 +6,9 @@
   "scripts": {
     "test": ""
   },
-  "bin": "index.js",
+  "bin": {
+    "jazzup": "bin/jazzup"
+  },
   "author": "Marius Mischie <m@marius.in>",
   "license": "MIT",
   "bugs": {
