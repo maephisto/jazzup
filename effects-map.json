@@ -1,12 +1,35 @@
 {
   "^git push.*": {
-    "audio": "mission-impossible-soundtrack.mp3"
+    "audio": "https://www.youtube.com/watch?v=9D-QD_HIfjA"
   },
   "rm": {
-
+    "audio": "https://www.youtube.com/watch?v=0Ac4xamCIgY",
+    "ascii": "spiderman.txt",
+    "lines": {
+      "title": "CUTTING THE SPIDERS WEB",
+      "entry-lines": {
+        "values": [
+          "Not everyone is meant to make a difference. But for me, the choice to lead an ordinary life is no longer an option.",
+          "Peter, you do too much… college, a job, all this time with me... You're not Superman, you know!\n"
+        ],
+        "interval": 2000
+      },
+      "command-start-lines": {
+        "values": [
+          "The itsy bitsy spider climbed up the water spout. Down came the Goblin and took the spider out.\n",
+          "Go web go! Tally ho!\n"
+        ],
+        "interval": 1000
+      },
+      "post-execution-lines": {
+        "values": [
+          "Oh. So you're Spider-Man"
+        ]
+      }
+    }
   },
   "npm install": {
-    "audio": "good-bad-ugly.mp3",
+    "audio": "https://www.youtube.com/watch?v=AFa1-kciCb4",
     "ascii": "cowboy.txt",
     "lines": {
       "title": "THE WILD WILD INSTALLMENT",
@@ -33,7 +56,7 @@
   },
 
   "default": {
-    "audio": "mission-impossible-soundtrack.mp3",
+    "audio": "http://youtube.com/watch?v=XAYhNHhxN0A",
     "ascii": "bomb.txt",
     "lines": {
       "title": "DEPLOY IMPOSSIBLE",

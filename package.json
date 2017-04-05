@@ -27,6 +27,7 @@
     "node.js"
   ],
   "dependencies": {
-    "player": "^0.6.1"
+    "player": "^0.6.1",
+    "youtube-audio-player": "^1.0.0"
   }
 }
