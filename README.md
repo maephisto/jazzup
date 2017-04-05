@@ -6,6 +6,9 @@ Install the module globally
 
 ``` npm install -g jazzup ```
 
+You will need to have ```ffmpeg``` and the necessary encoding libraries installed, as well as in your PATH. If you're on OSX, this can be handled easily using Homebrew (```brew install ffmpeg```).
+On Windows use https://ffmpeg.org/download.html
+
 Now all you have to do is add in front of your command "jazzup" and your boring command will now be all jazzed up with visual and audio embelishments.
 
 ``` jazzup npm install ```
