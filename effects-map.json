@@ -80,5 +80,32 @@
         ]
       }
     }
+  },
+
+  "npm i": {
+    "audio": "https://www.youtube.com/watch?v=Jmv5pTyz--I",
+    "ascii": "stranger-things.txt",
+    "lines": {
+      "title": "STRANGER COMMANDS",
+      "entry-lines": {
+        "values": [
+          "YOU BETTER RUN! She's our friend, and she's crazy!",
+          "FRIENDS DON’T LIE.\n"
+        ],
+        "interval": 2000
+      },
+      "command-start-lines": {
+        "values": [
+          "Barb? Baaarb?\n",
+          "BAARB?\n"
+        ],
+        "interval": 1000
+      },
+      "post-execution-lines": {
+        "values": [
+          "You command is done now sir, the orchestra has stopped playing..."
+        ]
+      }
+    }
   }
 }
